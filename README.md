@@ -13,3 +13,4 @@ Una vez enviada la opinión, podremos buscarla en en inicio. La búsqueda se rea
 * python manage.py migrate
 * python manage.py runserver 
 
+# Link al video: https://drive.google.com/drive/folders/1nBm7dFcMgHPwGD9c-gTZ08FHexKWEfmk
