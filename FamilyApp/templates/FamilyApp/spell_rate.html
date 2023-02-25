@@ -1,0 +1,25 @@
+{% extends "FamilyApp/padre.html" %}
+
+{% block titulo %}
+Opina sobre el hechizo
+{% endblock%}
+
+{% block formulario %}
+
+    <form action="", method="POST"> {% csrf_token %}
+
+        <table>
+            
+            {{formulario.as_table}}
+
+        </table>
+               
+        <input type="submit" value="Enviar">
+
+        <button>
+            <a href="{% url 'ListaHechizos' %}"> Regresar </a>
+        </button>
+        
+    </form>
+
+{% endblock%}

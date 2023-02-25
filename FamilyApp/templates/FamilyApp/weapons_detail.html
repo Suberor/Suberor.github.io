@@ -1,0 +1,52 @@
+{% extends "FamilyApp/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+detalles del arma
+{% endblock%}
+
+{% block formulario %}
+
+    <p>nombre: {{object.nombre}}</p>
+    <p>tipo: {{object.tipo}}</p>
+    <p>versatil: 
+        {% if object.versatil %}
+            Sí
+        {% else %}
+            No
+        {% endif %}
+    </p>
+    <p>legendaria: 
+        {% if object.legendaria %}
+            Sí
+        {% else %}
+            No
+        {% endif %}
+    </p>
+    <p>puntaje: {{object.puntaje}}</p>
+    <p>descripcion: {{object.descripcion}}</p>
+    <p>opinion: {{object.opinion}}</p>
+
+     <p>
+
+        {% if object.imagen %}
+
+        <img src="{{object.imagen.url}}" alt="..."
+
+        srcset="{{object.imagen.url}} 1200w,
+                {{object.imagen.url}} 2000w,
+                {{object.imagen.url}} 3000w"  
+
+        sizes="((min-width: 10em) and (max-width: 20em)) 10em,
+                ((min-width: 30em) and (max-width: 40em)) 30em,
+                (min-width: 40em) 40em"/>
+        
+        {% endif %}
+</p>   
+
+    <button>
+        <a href="{% url 'ListaArmas' %}"> Regresar </a>
+    </button>
+
+{% endblock%}

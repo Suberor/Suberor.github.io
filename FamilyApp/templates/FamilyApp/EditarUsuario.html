@@ -1,0 +1,27 @@
+{% extends "FamilyApp/padre.html" %}
+
+
+{% block titulo %}
+Editar usuario
+{% endblock%}
+
+{% block formulario %}
+
+    <form action="", method="POST"> {% csrf_token %}
+
+        <table>
+            
+            {{formulario.as_table}}
+
+        </table>
+        
+        
+        <input type="submit" value="Editar">
+          
+    </form>
+
+    <button>
+        <a href="{% url 'CambiarAvatar' %}"> cambiar avatar </a>
+    </button>
+
+{% endblock%}

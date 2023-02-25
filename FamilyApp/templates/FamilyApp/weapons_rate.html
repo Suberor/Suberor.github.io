@@ -1,0 +1,27 @@
+{% extends "FamilyApp/padre.html" %}
+
+
+{% block titulo %}
+Calificar armas
+{% endblock%}
+
+{% block formulario %}
+
+    <form action="", method="POST"> {% csrf_token %}
+
+        <table>
+            
+            {{form.as_table}}
+
+        </table>
+        
+        
+        <input type="submit" value="Enviar">
+
+        <button>
+            <a href="{% url 'ListaArmas' %}"> Regresar </a>
+        </button>
+        
+    </form>
+
+{% endblock%}

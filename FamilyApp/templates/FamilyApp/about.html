@@ -1,0 +1,26 @@
+{% extends "FamilyApp/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+Sobre mi
+{% endblock%}
+
+{% block subtitulo %}
+{{mensaje}}
+{% endblock%}
+
+{% block formulario %} 
+
+¡Hola! Mi nombre es Tomás Subero, tengo 25 años y decidí realizar este blog orientado a Dungeons & Dragons
+ya que es algo que me apasiona mucho. Los juegos de mesa son una parte importante en mi vida y en especial D&D.
+Considero que es una buena forma de conocer a las personas, tanto nueva como a viejos amigos, y brinda un momento
+de desconexión con el mundo real que muchos tanto necesitamos. 
+
+{% endblock %}
+
+{% block imagen %} 
+
+<img class="image" src="{% static 'FamilyApp/assets/img/dont_forget.png' %}" alt="..." />
+
+{% endblock%}

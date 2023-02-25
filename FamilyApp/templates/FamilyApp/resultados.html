@@ -1,0 +1,31 @@
+{% extends "FamilyApp/padre.html" %}
+
+{% block subtitulo %}
+
+<p>resultados para reseñas del hechizo "{{busqueda}}" </p>
+
+{% endblock %}
+
+{% block formulario %}
+
+{% if resultados %}
+
+{% for x in resultados %}
+
+    <p>{{x.usuario}} opinó sobre este hechizo:</p>
+    <p>{{x.opinion}}</p>
+    <p>puntaje: {{x.puntaje}}</p>
+    
+
+    <p>********************************************************</p>
+  
+{% endfor %}
+
+{% else %}
+
+<p>Aún no hay reseñas de este hechizo.</p>
+
+{% endif %}
+
+{% endblock %}
+

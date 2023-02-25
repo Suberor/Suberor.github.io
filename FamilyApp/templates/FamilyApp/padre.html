@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Critical Role - Start Bootstrap Theme</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'FamilyApp/assets/favicon.ico' %}" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'FamilyApp/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#page-top"></a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <a class="btn btn-primary" href={% url 'inicio' %}>D&D</a>
+                    <ul class="navbar-nav ms-auto">
+
+                        <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">sobre mi</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'ListaHechizos' %}">hechizos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Soon' %}">monstruos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'ListaArmas' %}">armas</a></li>
+
+                        {% if request.user.is_authenticated %}           
+                    
+                        <li class="nav-item"><a class="nav-link" href="{% url 'EditarUsuario' %}">Editar usuario</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'CerrarSesion' %}">Cerrar sesión</a></li>
+                                        
+                        {% with user.avatar_set.last as mi_imagen %}
+                        
+                        {% if mi_imagen %}
+
+                       <li class="nav-item"><p class="nav-link" style="color: whitesmoke;"> ¡Hola, {{user.username}}!</p></li>
+                        
+                       <a href="{{ mi_imagen.imagen.url }}" target="_blank" default="blank"></a>
+                       <img src="{{ mi_imagen.imagen.url }}" style="max-width: 60px; max-height: 60px;">
+
+                        {% endif %}
+                        
+                        {% endwith %}
+
+                        {% else %}
+
+                        <li class="nav-item"><a class="nav-link" href="{% url 'IniciarSesion' %}">Iniciar sesión</a></li>               
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Registrarse' %}">Registarse</a></li>
+
+                        {% endif %}
+                                                  
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                <div class="d-flex justify-content-center">
+                    <div class="text-center">
+                        <h1 class="mx-auto my-0 text-uppercase">
+                            
+                            {% block titulo %}                                             
+                            {% endblock %}
+                            <h2 class="text-white-50 mx-auto mt-2 mb-5">
+                                {% block subtitulo %}
+                                {% endblock %}
+                            </h2>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- About-->
+        <section class="about-section" id="about">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5">
+                    <div class="col-lg-8">
+                        <h2 class="text-white mb-4">
+                            {% block formulario %}                       
+                            {% endblock%}
+                        </h2>
+                        <p class="text">
+                            {% block buscar %}
+                            {% endblock %}                                       
+                        </p>
+                    </div>
+                </div>
+                {% block imagen %}
+                <img class="img-fluid" src="{% static 'FamilyApp/assets/img/maxresdefault.jpg' %}" alt="..." />
+                {% endblock %} 
+            </div>
+        </section>
+       

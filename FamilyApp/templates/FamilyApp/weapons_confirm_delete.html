@@ -1,0 +1,22 @@
+{% extends "FamilyApp/padre.html" %}
+
+
+{% block titulo %}
+Eliminar armas
+{% endblock%}
+
+{% block formulario %}
+
+    <form action="", method="POST"> {% csrf_token %}
+
+            <p> ¿Estás seguro que quieres eliminar el arma "{{object.nombre}}"? </p>
+        
+        <input type="submit" value="eliminar">
+
+        <button>
+            <a href="{% url 'ListaArmas' %}"> Regresar </a>
+        </button>
+
+    </form>
+
+{% endblock%}

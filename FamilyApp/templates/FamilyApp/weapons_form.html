@@ -1,0 +1,27 @@
+{% extends "FamilyApp/padre.html" %}
+
+
+{% block titulo %}
+Agregar armas
+{% endblock%}
+
+{% block formulario %}
+
+    <form action="", method="POST" enctype="multipart/form-data"> {% csrf_token %}
+
+        <table>
+            
+            {{form.as_table}}
+
+        </table>
+        
+        
+        <input type="submit" value="agregar">
+
+        <button>
+            <a href="{% url 'ListaArmas' %}"> Regresar </a>
+        </button>
+        
+    </form>
+
+{% endblock%}

@@ -1,0 +1,38 @@
+{% extends "FamilyApp/padre.html" %}
+
+
+{% block titulo %}
+Lista de hechizos
+{% endblock%}
+
+{% block formulario %}
+
+    <button>
+        <a href="{% url 'CrearHechizos' %}"> Agregar hechizo </a>
+    </button>
+
+
+
+    {% for spell in object_list %}
+
+            <p>nombre: {{spell.nombre}}</p>      
+
+            <button>
+                <a href="{% url 'DetallesHechizos' spell.id %}"> Detalles </a>
+            </button>
+            <button>
+                <a href="{% url 'EditarHechizos' spell.id %}"> Editar </a>
+            </button>
+            <button>
+                <a href="{% url 'BorrarHechizos' spell.id %}"> Eliminar </a>
+            </button>
+            <button>
+                <a href="{% url 'reseña' spell.id %}"> opinar </a>
+            </button>
+            
+    {% endfor %}
+{% endblock%}
+
+
+
+

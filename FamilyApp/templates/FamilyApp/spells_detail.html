@@ -1,0 +1,41 @@
+{% extends "FamilyApp/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+detalles del hechizo
+{% endblock%}
+
+{% block formulario %}
+
+    <p>nombre: {{object.nombre}}</p>
+    <p>nivel: {{object.nivel}}</p>
+    <p>escuela: {{object.escuela}}</p>
+    <p>puntaje: {{object.puntaje}}</p>
+    <p>descipcion: {{object.descripcion}}</p>
+    
+    
+
+    <p>
+
+        {% if object.imagen %}
+
+        <img src="{{object.imagen.url}}" alt="..."
+
+        srcset="{{object.imagen.url}} 1200w,
+                {{object.imagen.url}} 2000w,
+                {{object.imagen.url}} 3000w"  
+
+        sizes="((min-width: 10em) and (max-width: 20em)) 10em,
+                ((min-width: 30em) and (max-width: 40em)) 30em,
+                (min-width: 40em) 40em"/>
+
+        {% endif %}
+    </p>
+
+   
+    <button>
+        <a href="{% url 'ListaHechizos' %}"> Regresar </a>
+    </button>
+
+{% endblock%}

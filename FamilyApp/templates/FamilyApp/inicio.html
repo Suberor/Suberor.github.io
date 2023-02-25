@@ -1,0 +1,23 @@
+{% extends "FamilyApp/padre.html" %}
+
+{% block titulo %}
+Blog de D&D
+{% endblock%}
+
+{% block subtitulo %}
+{{mensaje}}
+{% endblock%}
+
+{% block formulario %}
+
+buscar reseñas de hechizos:
+
+<form action="/FamilyApp/buscar/", method="GET">
+            
+    <input type="text" placeholder name="enviar" id="enviar">
+    <input type="submit" name="buscar">
+    
+</form>
+
+{% endblock %}
+

@@ -1,0 +1,32 @@
+{% extends "FamilyApp/padre.html" %}
+
+
+{% block titulo %}
+Lista de armas
+{% endblock%}
+
+{% block formulario %}
+
+    <button>
+        <a href="{% url 'CrearArmas' %}"> Agregar </a>
+    </button>
+
+    {% for weapon in object_list %}
+
+            <p>nombre: {{weapon.nombre}}</p>
+            
+            <button>
+                <a href="{% url 'DetallesArmas' weapon.id %}"> Detalles </a>
+            </button>
+            <button>
+                <a href="{% url 'EditarArmas' weapon.id %}"> Editar </a>
+            </button>
+            <button>
+                <a href="{% url 'BorrarArmas' weapon.id %}"> Borrar </a>
+            </button>
+           
+            
+        
+    {% endfor %}
+
+{% endblock%}
